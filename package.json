@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "woniu365",
+  "git": "https://github.com/woniu365/x-video-panel",
   "license": "ISC",
   "dependencies": {
     "flv.js": "^1.5.0"
