@@ -1,0 +1,14 @@
+{
+  "name": "video-panel",
+  "version": "1.0.0",
+  "description": "'基于flvjs的安防监控视频面板'",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "flv.js": "^1.5.0"
+  }
+}
