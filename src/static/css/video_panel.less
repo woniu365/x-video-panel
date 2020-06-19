@@ -9,6 +9,14 @@
   }
 
   .video-box {
+    overflow: hidden;
+
+    .video-box-list-active {
+      .video-player {
+        border: 1px solid greenyellow;
+      }
+    }
+
     .video-box-list {
       float: left;
       border-left: 1px #5d6c7b solid;
@@ -38,7 +46,7 @@
     }
 
     span.tips {
-      color:#999999;
+      color: #999999;
       display: block;
       z-index: 1;
       margin-top: 5px;
@@ -62,8 +70,8 @@
 
   .vWin-6 {
     .video-box-list:first-child {
+      height: calc(100% / 3 * 2 - 1px);
       width: calc(100% / 3 * 2);
-      height: calc(100% / 3 * 2 );
     }
 
     .video-box-list {
@@ -120,6 +128,7 @@
 
   .tools-box {
     width: @vw;
+    min-width: @vw;
   }
 
   .video-box {

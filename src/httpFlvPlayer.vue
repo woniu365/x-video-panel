@@ -3,7 +3,7 @@
     <video :id="id" v-show="!loading">
     </video>
     <div class="loading" v-if="loading">
-      <img src="@/assets/images/svg-loaders/three-dots.svg" width="64" alt="">
+      <img src="./static/images/svg-loaders/three-dots.svg" width="64" alt="">
       <span class="tips">加载中...</span>
     </div>
     <div class="tools-box">
@@ -175,6 +175,7 @@
             stashInitialSize: 32
           }
           this.flvPlayer = flvjs.createPlayer(source)
+
           this.flvPlayer.attachMediaElement(document.getElementById(this.id))
           this.flvPlayer.on(flvjs.Events.ERROR, (errorType, errorDetail, errorInfo) => {
               console.log('errorType:', errorType)
@@ -200,7 +201,7 @@
               } else {
                 setTimeout(function() {
                   _this.loading = false
-                }, 3000)
+                }, 1000)
               }
             }
           )
@@ -209,7 +210,10 @@
             console.log('断流了')
           })
           this.flvPlayer.load()
-          this.flvPlayer.play()
+          const playPromise = this.flvPlayer.play()
+          playPromise.catch((error) => {
+            console.log('Catch error: ', error)
+          })
         }
       }
     },
@@ -250,8 +254,8 @@
     text-align: center;
     vertical-align: middle;
 
-    border-left: 1px #5d6c7b solid;
-    border-bottom: 1px #5d6c7b solid;
+    //border-left: 1px #5d6c7b solid;
+    //border-bottom: 1px #5d6c7b solid;
 
     video {
       height: 100%;
@@ -269,9 +273,11 @@
       justify-content: center; /* 水平居中 */
       align-items: center; /* 垂直居中 */
       flex-direction: column;
+
       image {
         z-index: 999;
       }
+
       span {
         z-index: 999;
         margin-top: 5px;
